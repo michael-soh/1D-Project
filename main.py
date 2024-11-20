@@ -29,9 +29,13 @@ def startGame(guessLetter,checkWord):
     if checkFunction(guessLetter,checkWord) == True:
         print("Good Job")
         print(successletters.values())
-        print(False in successletters)
-        if False in successletters:
+        falseExists = successletters.values()
+        print(False in falseExists)
+        if False in falseExists:
             main()
+        elif (for i in range(len(falseExists))):
+            
+            print("Game End")
     else:
         print("Try Again")
         main()
@@ -40,24 +44,26 @@ def startGame(guessLetter,checkWord):
 #     return guessLetter
 def checkFunction(guessLetter, checkWord):
     # print(checkWord)
+    flag = False
     for i in range(len(checkWord)):
         # print(checkWord[i])
         if (checkWord[i] == guessLetter):
             # guess S is = letter given S
             print(successletters[i])
             updateDict(i)
-        # else:
-        #     updateDict(i)
-            return True
-    return False
-
+            flag = True
+            continue
+    if flag is False:
+        return False
+    else:
+        return True
 
 def updateDict(checkWord):
     # print(checkWord)
     # update letter to true after correct guess
     successletters[checkWord] = {checkWord: True}
 
-# //TODO FIX DOUBLE LETTER ALGO ISSUE
+# //TODO FIX CAPITALISATION NOT RECOGNIZING
 
 
 main()

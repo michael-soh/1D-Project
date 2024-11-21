@@ -33,8 +33,8 @@ def startGame(guessLetter,checkWord):
         print(False in falseExists)
         if False in falseExists:
             main()
-        elif (for i in range(len(falseExists))):
-            
+        # elif (for i in range(len(falseExists))):
+
             print("Game End")
     else:
         print("Try Again")
